@@ -1,0 +1,48 @@
+$primary-color: red;
+.text{
+    font-size: 20px;
+    color: $primary-color;
+    
+    
+}
+textarea{
+    @extend.text;
+}
+h1{
+    @extend.text;  
+}
+@mixin inline-block($p1:3px, $p2: solid , $p3:yellow) {
+    border: $p1 $p2 $p3;
+    
+ }
+ .button{
+     @include inline-block(5px,solid , red)
+ }
+ @function couleur ($color)
+{  @if ($color== white) {
+    @return black;
+
+ }@else {
+     @return white;
+ }
+}
+h1{
+    color : couleur(white)
+}
+h2{
+    color: couleur(blue);
+}
+$languages : "React", "Angular", "Spring";
+@function first ($list){
+    @return nth($list, 1)
+}
+@function last($list){
+    @return nth($list,  -1);
+    @return nth($list,  length($list));
+}
+.text2{
+    content: last($languages);
+}
+ .text1{
+     content: first($languages);
+ }
